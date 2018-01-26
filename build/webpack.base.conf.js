@@ -19,7 +19,7 @@ const createLintingRule = () => ({
   }
 })
 
-module.exports = {
+var originalConfig = {
   context: path.resolve(__dirname, '../'),
   entry: {
     app: './src/main.js'
@@ -90,3 +90,13 @@ module.exports = {
     child_process: 'empty'
   }
 }
+
+
+const vuxLoader = require('vux-loader')
+const webpackConfig = originalConfig // 原来的 module.exports 代码赋值给变量 webpackConfig
+
+module.exports = vuxLoader.merge(webpackConfig, {
+  plugins: [{
+    name: 'vux-ui'
+  }]
+})
