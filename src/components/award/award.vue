@@ -163,7 +163,12 @@
   }
 </script>
 <style lang="less" scoped>
+  html{
+    margin:0;
+    padding: 0;
+  }
   .award{
+    margin-top: 2rem;
     .turnplate-wrap {
       display: block;
       position: relative;
