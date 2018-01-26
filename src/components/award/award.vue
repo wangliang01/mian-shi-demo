@@ -41,6 +41,7 @@
     },
     methods: {
       whileClick () {
+          let that = this
         // 动态添加大转盘的奖品与奖品区域背景颜色
           if (this.turnplate.bRotate) return; // 正在旋转，直接返回
           this.turnplate.bRotate = !this.turnplate.bRotate;
@@ -50,7 +51,11 @@
           var text = this.turnplate.restaraunts[item - 1];
           this.rotateFn(item, function () {
             // 抽奖结果
-            alert('中奖结果:' + text);
+            console.log(that.$vux.toast)
+            that.$vux.toast.show({
+              text: `中奖结果: ${text}`,
+              type: 'text'
+            });
           });
           console.log(item);
       },
